@@ -6,7 +6,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int limite, cont=0;
 
-        System.out.println("Infome: ");
+        System.out.printf("Infome: ");
         limite = sc.nextInt();
 
         while(cont <= limite)

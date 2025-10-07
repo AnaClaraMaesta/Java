@@ -16,20 +16,25 @@ public class Main {
         mapa.put("João", 5.7);
         mapa.put("Pedro", 6.4);
 
-        System.out.print("Aluno: ");
+        System.out.print("Estudante: ");
         String nome = sc.nextLine();
 
-        System.out.println(mapa.get(nome));
+        System.out.println(nome +": "+ mapa.get(nome));
 
-        System.out.println("Todos: "+mapa);
+        System.out.println("Todos: " + mapa);
 
-        Double maior = mapa.get(0);
+        TreeMap<String, Double> maior = new TreeMap<>();
+        String nomeMaior = null;
+        Double maiorNota = Double.MIN_VALUE;
 
-        for(int i = 0; i < mapa.size(); i++) {
-            if(maior < mapa.get(i)) {
-                maior = mapa.get(i);
+        for(Map.Entry<String, Double> entry : mapa.entrySet()) { //“Para cada par de (nome, nota) dentro do mapa, guarde esse par na variável entry e execute o bloco do for.”
+            if(entry.getValue() > maiorNota){
+                maiorNota = entry.getValue();
+                nomeMaior = entry.getKey();
             }
         }
-        System.out.println("Maior: "+maior);
+
+        System.out.println("Estudante com maior nota: "+nomeMaior+" [Nota: "+maiorNota+ "]");
+
     }
 }

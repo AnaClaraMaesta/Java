@@ -23,7 +23,6 @@ public class Main {
 
         System.out.println("Todos: " + mapa);
 
-        TreeMap<String, Double> maior = new TreeMap<>();
         String nomeMaior = null;
         Double maiorNota = Double.MIN_VALUE;
 

@@ -12,10 +12,10 @@ public class ex9 {
             if(num>0){
                 System.out.println(dobro(num));
             }else{
-                int i = num/0;
+                throw new IllegalArgumentException("Não use numeros negativos...");
             }
-        }catch(Exception e){
-            throw new IllegalArgumentException ("Não use numeros negativos...");
+        }catch(IllegalArgumentException e){
+            System.err.println(e.getMessage());
         }
 
     }
@@ -23,3 +23,4 @@ public class ex9 {
         return num*2;
     }
 }
+

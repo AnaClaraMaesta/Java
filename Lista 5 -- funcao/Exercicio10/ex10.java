@@ -5,29 +5,65 @@ import java.util.Scanner;
 public class ex10 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        String parada = "";
-        String operadores = "+-/*";
 
+        System.out.println("Escreva uma operção");
+        pularLinha();
+        System.out.println("operacao: ");
+        String entrada = scan.nextLine();
+        pularLinha();
+        separarTokens(entrada);
 
-            System.out.print("numero 1: ");
-            int num1 = scan.nextInt();
-            System.out.println("operador: ");
-        try{
-            String operador = scan.nextLine();
-            scan.nextLine();
-            if (operador.contains(operador)){
-                int Z = 1/0;
-            };
+    }
 
+    public static double calcular(double num1, double num2, String operador){
+        double resultado=0;
 
-        }catch (Exception e){
-            throw  new IllegalArgumentException("teste");
-        }finally {
+       try{
+           switch(operador){
+               case "+":
+                   resultado = num1 + num2;
+                   break;
+               case "-":
+                   resultado = num1 - num2;
+                   break;
+               case  "*":
+                   resultado = num1 * num2;
+                   break;
+               case  "/":
+                   if(num2 == 0){
+                       throw new ArithmeticException("Não é possível dividir por zero!");
+                   }
+                   break;
+               default:
+                   throw new IllegalArgumentException("Operador inválido (" + operador + "). Use +, -, * ou /.");
 
-            System.out.print("Informe um numero: ");
-            int num2 = scan.nextInt();
+           }
+       }catch(ArithmeticException e){
+           System.out.println(e.getMessage());
+       }catch(IllegalArgumentException e){
+           System.out.println(e.getMessage());
+       }finally{
+           finalizar();
+       }
+        return resultado;
 
-        }
+    }
+
+    public static void pularLinha() {
+        System.out.println("---------------------------------------------------");
+    }
+
+    public static void separarTokens(String entrada){
+        String[] tokens = entrada.split("\\s+");
+
+        double num1 = Double.parseDouble(tokens[0]);
+        String operador = tokens[1];
+        double num2 = Double.parseDouble(tokens[2]);
+
+        System.out.println("= "+ calcular(num1, num2, operador));
+    }
+
+    public static void finalizar() {
+        System.out.println("Operacao finalizada com sucesso");
     }
 }
-

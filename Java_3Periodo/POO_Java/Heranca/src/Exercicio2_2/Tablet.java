@@ -1,4 +1,5 @@
 package Exercicio2_2;
 
-public class Tablet {
+public class Tablet extends Dispositivos{
+    
 }

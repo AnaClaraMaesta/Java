@@ -27,5 +27,6 @@ public class Main2 {
                 System.out.println("A luz explodiu");
                 break;
         }
+        scan.close();
     }
 }

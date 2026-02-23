@@ -27,6 +27,6 @@ public class Main {
                 System.out.println("Algo deu errado...");
                 break;
         }
-
+        scan.close();
     }
 }
